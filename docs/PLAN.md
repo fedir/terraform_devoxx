@@ -1,7 +1,5 @@
 5 minutes max : Explication sur terraform et contexte
 
-
-
 # Déroulement démo
 ## step01
 
@@ -25,7 +23,8 @@ resource "aws_key_pair" "devoxx" {
 ```
 
 ### une instance AVEC TAG Owner et name ###
-    live template : aws_instance_base
+
+live template : aws_instance_base
 
 ```
 resource "aws_instance" "devoxx" {
@@ -42,13 +41,14 @@ resource "aws_instance" "devoxx" {
 
 ### premiere apply ###
 
+```
 terraform plan
 terraform apply
 parler du tfstate
 Montrer une vue de la console
 terraform show + grep ip
 on se logue en ssh
-
+```
 
 ## Deuxième déploiement ##
 ### Ajout security group ###
@@ -73,6 +73,7 @@ resource "aws_security_group" "devoxx" {
 ```
 
 ### Ajout provisionner + connexion pour sleep timing + 4 instance ###
+
 live template : aws_instance_provisionner
 + count 
 + securitygroup NAME
@@ -102,9 +103,11 @@ resource "aws_instance" "devoxx" {
 }
 ```
 
+```
 teraform plan
 terraform apply
 montrer console aws
+```
 
 # TODO A voir si on fais
 Pendant apply, mise en place des variables
@@ -116,15 +119,22 @@ Montrer dans console aws, ou terraform show la présence de 2 ip différentes
 
 ## Now : déployer l'app avec ansible ##
 ### Montrer / générer l'inventaire terraforum ###
+
 `terraform-inventory`
 
 ### Lancer ansible ###
+
+```
 ansible-playbook ansible/playbook.yml
+```
+
 Montrer le playbook ansible rapidement.
 Expliquer ce qu'il fait pendant qu'il se déroule
 
 ## Last part ##
+
 ### Creation de l'elb ###
+
 live template : aws_data_route53_zone
 
 ```
@@ -134,6 +144,7 @@ data "aws_route53_zone" "xebia_dns" {
 ```
 
 ### Creation Route53 ###
+
 live template : aws_route53
 
 ```
